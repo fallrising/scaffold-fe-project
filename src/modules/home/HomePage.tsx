@@ -1,5 +1,9 @@
 // src/modules/home/HomePages.tsx
+import { useFetchUsers } from '@/shared/apis/fetchUsers/hooks/useFetchUsers.ts';
+
 const HomePage = () => {
+    const { users, loading } = useFetchUsers();
+
     return (
         <div className="home-page">
             <h2>Welcome to My Application</h2>
@@ -16,6 +20,24 @@ const HomePage = () => {
                     <li>The content area scrolls independently</li>
                     <li>The footer stays at the bottom</li>
                 </ul>
+            </div>
+
+            {/* Fetched Users Section */}
+            <div className="users-section">
+                <h3>Fetched Users:</h3>
+                {loading ? (
+                    <p>Loading...</p>
+                ) : users.length > 0 ? (
+                    <ul>
+                        {users.map((user) => (
+                            <li key={user.id}>
+                                {user.id}: {user.name}
+                            </li>
+                        ))}
+                    </ul>
+                ) : (
+                    <p>No users found or an error occurred.</p>
+                )}
             </div>
         </div>
     )
