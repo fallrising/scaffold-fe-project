@@ -1,56 +1,47 @@
-// src/modules/home/HomePage.tsx
-import { Card, Typography, Row, Col, Button } from 'antd'
-import { RocketOutlined, BookOutlined } from '@ant-design/icons'
+import { Button, Result } from 'antd'
+import { useNavigate } from 'react-router-dom'
+import { HomeOutlined } from '@ant-design/icons'
 
-const { Title, Paragraph } = Typography
+// The NotFound component serves as a user-friendly 404 error page
+// It uses Ant Design's Result component for consistent styling and UX
+const NotFound = () => {
+    // Use the navigate hook from react-router-dom for programmatic navigation
+    const navigate = useNavigate()
 
-const HomePage = () => {
+    // Handler for returning to the homepage
+    const handleBackHome = () => {
+        navigate('/')
+    }
+
     return (
-        <div className="p-6">
-            <Title level={2} className="mb-6">Welcome to Your Application</Title>
-
-            <Row gutter={[16, 16]}>
-                <Col xs={24} md={12}>
-                    <Card
-                        hoverable
-                        className="h-full"
-                        title={
-                            <span>
-                <RocketOutlined className="mr-2" />
-                Getting Started
-              </span>
-                        }
+        <div className="flex min-h-[calc(100vh-200px)] items-center justify-center p-8">
+            <Result
+                status="404"
+                title="404"
+                subTitle={
+                    <div className="space-y-4">
+                        <p className="text-gray-600">
+                            Sorry, the page you are looking for does not exist.
+                        </p>
+                        <p className="text-sm text-gray-500">
+                            The page might have been removed, had its name changed, or is temporarily unavailable.
+                        </p>
+                    </div>
+                }
+                extra={
+                    <Button
+                        type="primary"
+                        icon={<HomeOutlined />}
+                        onClick={handleBackHome}
+                        size="large"
+                        className="h-10"
                     >
-                        <Paragraph>
-                            This is your new application homepage. Start building your features from here.
-                        </Paragraph>
-                        <Button type="primary">
-                            Explore Features
-                        </Button>
-                    </Card>
-                </Col>
-
-                <Col xs={24} md={12}>
-                    <Card
-                        hoverable
-                        className="h-full"
-                        title={
-                            <span>
-                <BookOutlined className="mr-2" />
-                Documentation
-              </span>
-                        }
-                    >
-                        <Paragraph>
-                            Check out our documentation to learn more about the application structure
-                            and development guidelines.
-                        </Paragraph>
-                        <Button>View Docs</Button>
-                    </Card>
-                </Col>
-            </Row>
+                        Back to Home
+                    </Button>
+                }
+            />
         </div>
     )
 }
 
-export default HomePage
+export default NotFound

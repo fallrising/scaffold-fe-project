@@ -1,22 +1,46 @@
 // src/shared/components/layout/MainLayout.tsx
-import { Layout } from 'antd'
-import { Header } from './Header'
-import { Footer } from './Footer'
-import { Sidebar } from './Sidebar'
+import { ReactNode } from 'react'
+import '@/styles/globals.css'  // You only need this import in main.tsx
 
-const { Content } = Layout
+interface MainLayoutProps {
+    children: ReactNode
+}
 
-export const MainLayout = ({ children }: { children: React.ReactNode }) => {
+export const MainLayout = ({ children }: MainLayoutProps) => {
     return (
-        <Layout className="min-h-screen">
-            <Header />
-            <Layout>
-                <Sidebar />
-                <Layout>
-                    <Content className="p-6">{children}</Content>
-                </Layout>
-            </Layout>
-            <Footer />
-        </Layout>
+        <div className="layout">
+            {/* Header stays at the top */}
+            <header className="header">
+                <h1>My Application</h1>
+                <nav>
+                    <button>Profile</button>
+                    <button>Settings</button>
+                    <button>Logout</button>
+                </nav>
+            </header>
+
+            <div className="main-container">
+                {/* Sidebar on the left */}
+                <aside className="sidebar">
+                    <nav>
+                        <ul>
+                            <li><a href="/" className="active">Home</a></li>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                </aside>
+
+                {/* Main content area */}
+                <main className="content">
+                    {children}
+                </main>
+            </div>
+
+            {/* Footer at the bottom */}
+            <footer className="footer">
+                <p>© 2024 My Application. All rights reserved.</p>
+            </footer>
+        </div>
     )
 }

@@ -1,53 +1,22 @@
-import { Card, Typography, Row, Col, Button } from 'antd'
-import { RocketOutlined, BookOutlined } from '@ant-design/icons'
-
-const { Title, Paragraph } = Typography
-
+// src/modules/home/HomePages.tsx
 const HomePage = () => {
     return (
-        <div className="p-6">
-            <Title level={2} className="mb-6">Welcome to Your Application</Title>
+        <div className="home-page">
+            <h2>Welcome to My Application</h2>
+            <p>This is a simple demonstration of a layout structure with header,
+                sidebar, main content, and footer components working together.</p>
 
-            <Row gutter={[16, 16]}>
-                <Col xs={24} md={12}>
-                    <Card
-                        hoverable
-                        className="h-full"
-                        title={
-                            <span>
-                <RocketOutlined className="mr-2" />
-                Getting Started
-              </span>
-                        }
-                    >
-                        <Paragraph>
-                            This is your new application homepage. Start building your features from here.
-                        </Paragraph>
-                        <Button type="primary">
-                            Explore Features
-                        </Button>
-                    </Card>
-                </Col>
-
-                <Col xs={24} md={12}>
-                    <Card
-                        hoverable
-                        className="h-full"
-                        title={
-                            <span>
-                <BookOutlined className="mr-2" />
-                Documentation
-              </span>
-                        }
-                    >
-                        <Paragraph>
-                            Check out our documentation to learn more about the application structure
-                            and development guidelines.
-                        </Paragraph>
-                        <Button>View Docs</Button>
-                    </Card>
-                </Col>
-            </Row>
+            {/* Example content */}
+            <div className="content-box">
+                <h3>Hello World!</h3>
+                <p>This is where your main content will go. The layout ensures that:</p>
+                <ul>
+                    <li>The header stays at the top</li>
+                    <li>The sidebar remains fixed on the left</li>
+                    <li>The content area scrolls independently</li>
+                    <li>The footer stays at the bottom</li>
+                </ul>
+            </div>
         </div>
     )
 }

@@ -1,5 +1,6 @@
+// src/shared/components/layout/Header.tsx
 import { Layout, Avatar, Dropdown } from 'antd'
-import { UserOutlined, SettingOutlined, LogoutOutlined } from '@ant-design/icons'
+import { UserOutlined } from '@ant-design/icons'
 import type { MenuProps } from 'antd'
 
 const { Header: AntHeader } = Layout
@@ -10,33 +11,18 @@ const userMenuItems: MenuProps['items'] = [
         icon: <UserOutlined />,
         label: 'Profile',
     },
-    {
-        key: 'settings',
-        icon: <SettingOutlined />,
-        label: 'Settings',
-    },
-    {
-        type: 'divider',
-    },
-    {
-        key: 'logout',
-        icon: <LogoutOutlined />,
-        label: 'Logout',
-    },
 ]
 
 export const Header = () => {
     return (
-        <AntHeader className="flex items-center justify-between bg-white px-6 shadow">
+        <AntHeader className="fixed left-0 right-0 top-0 z-50 flex h-16 items-center justify-between bg-white px-6 shadow-md">
+            {/* Left side - Logo/Brand */}
             <div className="text-xl font-bold">Your App Name</div>
-            <div className="flex items-center gap-4">
-                <Dropdown menu={{ items: userMenuItems }} trigger={['click']}>
-                    <Avatar
-                        icon={<UserOutlined />}
-                        className="cursor-pointer"
-                    />
-                </Dropdown>
-            </div>
+
+            {/* Right side - User menu */}
+            <Dropdown menu={{ items: userMenuItems }} trigger={['click']}>
+                <Avatar icon={<UserOutlined />} className="cursor-pointer" />
+            </Dropdown>
         </AntHeader>
     )
 }
