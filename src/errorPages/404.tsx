@@ -1,3 +1,4 @@
+// src/modules/home/HomePage.tsx
 import { Card, Typography, Row, Col, Button } from 'antd'
 import { RocketOutlined, BookOutlined } from '@ant-design/icons'
 
