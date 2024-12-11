@@ -86,8 +86,8 @@
 }
 
 .sidebar a.active {
-    background-color: #1a1a1a;
-    color: white;
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 /* Main content styling */
@@ -104,3 +104,5 @@
     padding: 1rem 2rem;
     text-align: center;
 }
+
+

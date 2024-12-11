@@ -1,12 +1,14 @@
-// src/shared/components/layout/MainLayout.tsx
-import { ReactNode } from 'react'
-import '@/styles/globals.css'  // You only need this import in main.tsx
+import { ReactNode } from 'react';
+import { useLocation, Link } from 'react-router-dom';
+import '@/styles/globals.css'; // You only need this import in main.tsx
 
 interface MainLayoutProps {
-    children: ReactNode
+    children: ReactNode;
 }
 
-export const MainLayout = ({ children }: MainLayoutProps) => {
+const MainLayout = ({ children }: MainLayoutProps) => {
+    const location = useLocation();
+
     return (
         <div className="layout">
             {/* Header stays at the top */}
@@ -24,9 +26,38 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
                 <aside className="sidebar">
                     <nav>
                         <ul>
-                            <li><a href="/" className="active">Home</a></li>
-                            <li><a href="/about">About</a></li>
-                            <li><a href="/contact">Contact</a></li>
+                            <li>
+                                <Link
+                                    to="/"
+                                    className={location.pathname === '/' ? 'active' : ''}
+                                >
+                                    Home
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="/conveyor"
+                                    className={location.pathname === '/conveyor' ? 'active' : ''}
+                                >
+                                    Conveyor
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="/about"
+                                    className={location.pathname === '/about' ? 'active' : ''}
+                                >
+                                    About
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="/contact"
+                                    className={location.pathname === '/contact' ? 'active' : ''}
+                                >
+                                    Contact
+                                </Link>
+                            </li>
                         </ul>
                     </nav>
                 </aside>
@@ -42,5 +73,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
                 <p>© 2024 My Application. All rights reserved.</p>
             </footer>
         </div>
-    )
-}
+    );
+};
+
+export default MainLayout;

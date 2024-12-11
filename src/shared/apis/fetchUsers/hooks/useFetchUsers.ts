@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { fetchUsers } from '@/shared/apis/fetchUsers/fetchUsers.ts';
-import { User } from '@/shared/apis/fetchUsers/types/user';
+import User from "@/shared/apis/fetchUsers/types";
+import fetchUsers from "@/shared/apis/fetchUsers";
 
-export const useFetchUsers = () => {
+const useFetchUsers = () => {
     const [users, setUsers] = useState<User[]>([]); // Initialize as empty array
     const [loading, setLoading] = useState(true);
 
@@ -17,3 +17,5 @@ export const useFetchUsers = () => {
 
     return { users, loading };
 };
+
+export default useFetchUsers;

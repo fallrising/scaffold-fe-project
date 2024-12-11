@@ -1,5 +1,5 @@
 // src/modules/home/HomePages.tsx
-import { useFetchUsers } from '@/shared/apis/fetchUsers/hooks/useFetchUsers.ts';
+import useFetchUsers from "@/shared/apis/fetchUsers/hooks";
 
 const HomePage = () => {
     const { users, loading } = useFetchUsers();

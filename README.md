@@ -31,7 +31,7 @@ The project follows a scalable and maintainable architecture:
 src/
 ├── app/                    # Application core setup
 │   ├── App.tsx            # Root component
-│   └── routes.tsx         # Route definitions
+│   └── Routes.tsx         # Route definitions
 ├── modules/               # Feature-based modules
 │   └── home/             # Home page module
 ├── shared/               # Shared resources
@@ -100,13 +100,13 @@ Components are organized following these principles:
 
 ### Routing
 
-Routes are defined in `src/app/routes.tsx` using React Router v7. The application uses lazy loading for better performance:
+Routes are defined in `src/app/Routes.tsx` using React Router v7. The application uses lazy loading for better performance:
 
 ```typescript
 const routes = [
     {
         path: '/',
-        element: <HomePage />
+        element: <Conveyor />
     },
     // Add new routes here
 ]

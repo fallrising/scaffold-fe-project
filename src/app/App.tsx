@@ -1,8 +1,8 @@
 // src/app/App.tsx
 import { Suspense } from 'react'
 import { useRoutes } from 'react-router-dom'
-import { MainLayout } from '@/shared/components/layout/MainLayout'
-import { routes } from './routes'
+import { routes } from './Routes.tsx'
+import MainLayout from "@/shared/components/layout";
 
 const App = () => {
     const element = useRoutes(routes)
