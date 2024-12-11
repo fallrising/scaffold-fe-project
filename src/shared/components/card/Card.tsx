@@ -7,9 +7,23 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ title, description }) => {
     return (
-        <div className="bg-white border border-gray-300 rounded-lg shadow-md p-4 max-w-sm">
-            <h3 className="text-lg font-bold text-gray-800 mb-2 truncate">{title}</h3>
-            <p className="text-sm text-gray-600">{description}</p>
+        // Using a more sophisticated shadow that matches Ant Design's elevation style
+        // Adding hover effect and transition for interactive feel
+        <div className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300
+                        border border-gray-200 overflow-hidden cursor-pointer">
+            {/* Card header with proper spacing and border treatment */}
+            <div className="px-6 py-4 border-b border-gray-100">
+                <h3 className="text-lg font-medium text-gray-800 m-0 leading-tight">
+                    {title}
+                </h3>
+            </div>
+
+            {/* Card content with consistent padding */}
+            <div className="px-6 py-4">
+                <p className="text-gray-600 text-base leading-relaxed m-0">
+                    {description}
+                </p>
+            </div>
         </div>
     );
 };
