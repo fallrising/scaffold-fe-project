@@ -1,4 +1,4 @@
-// src/modules/home/HomePages.tsx
+// src/modules/home/queryHome/HomePages.tsx
 import useFetchUsers from "@/shared/apis/fetchUsers/hooks";
 
 const HomePage = () => {

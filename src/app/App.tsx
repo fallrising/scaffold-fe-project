@@ -1,17 +1,26 @@
 // src/app/App.tsx
-import { Suspense } from 'react'
-import { useRoutes } from 'react-router-dom'
-import { routes } from './Routes.tsx'
-import MainLayout from "@/shared/components/layout";
+import MainLayout from "@/shared/components/layout/mainLayout";
+import { Route, Routes } from 'react-router-dom';
+import Dashboard from "@/pages/Dashboard.tsx";
+import SearchList from "@/pages/SearchList.tsx";
+import FormList from "@/pages/FormList.tsx";
+import UserList from "@/pages/UserList.tsx";
+import Settings from "@/pages/Settings.tsx";
+import HomePage from "@/pages/HomePage.tsx";
+import SearchPage from "@/pages/SearchPage.tsx";
 
 const App = () => {
-    const element = useRoutes(routes)
-
     return (
         <MainLayout>
-            <Suspense fallback={<div>Loading...</div>}>
-                {element}
-            </Suspense>
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="dashboard" element={<Dashboard />} />
+                <Route path="search" element={<SearchList />} />
+                <Route path="searchPage" element={<SearchPage />} />
+                <Route path="form" element={<FormList />} />
+                <Route path="users" element={<UserList />} />
+                <Route path="settings" element={<Settings />} />
+            </Routes>
         </MainLayout>
     )
 }

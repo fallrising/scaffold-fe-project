@@ -1,5 +1,5 @@
 // src/modules/conveyor/Conveyor.tsx
-import InfiniteScroll from "@/shared/components/infiniteScroll";
+import InfiniteScroll from "src/shared/components/ui/infiniteScroll";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Conveyor.css";

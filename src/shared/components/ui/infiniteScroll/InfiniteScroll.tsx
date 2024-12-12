@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Card from '../card/Card.tsx';
+import Card from '@/shared/components/ui/testCard/Card.tsx';
 
 interface Post {
     id: number;
